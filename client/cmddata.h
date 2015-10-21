@@ -25,6 +25,7 @@ int CmdAutoCorr(const char *Cmd);
 int CmdBiphaseDecodeRaw(const char *Cmd);
 int CmdBitsamples(const char *Cmd);
 int CmdBuffClear(const char *Cmd);
+int CmdEEPROMClear(const char *Cmd);
 int CmdDec(const char *Cmd);
 int CmdDetectClockRate(const char *Cmd);
 int CmdFDXBdemodBI(const char *Cmd);

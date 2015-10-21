@@ -1,0 +1,4 @@
+PA5 (35) - NCS3 (SS3)
+PA12 (27) - MISO
+PA13 (22) - MOSI
+PA14 (21) - SCK

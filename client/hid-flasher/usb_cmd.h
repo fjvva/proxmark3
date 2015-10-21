@@ -50,6 +50,8 @@ typedef struct {
 #define CMD_BUFF_CLEAR                                                    0x0105
 #define CMD_READ_MEM                                                      0x0106
 #define CMD_VERSION                                                       0x0107
+#define CMD_EEPROM_CLEAR						  0x010A
+#define CMD_EEPROM_TEST							  0x101B
 
 // For low-frequency tags
 #define CMD_READ_TI_TYPE                                                  0x0202

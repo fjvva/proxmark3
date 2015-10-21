@@ -43,6 +43,7 @@ THUMBSRC = start.c \
 	$(SRC_LF) \
 	$(SRC_ZLIB) \
 	appmain.c \
+	EEPROM.c \
 	printf.c \
 	util.c \
 	string.c \

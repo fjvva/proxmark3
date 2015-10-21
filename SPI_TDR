@@ -1,0 +1,27 @@
+armsrc/EEPROM.c:  while ((AT91C_BASE_SPI->SPI_SR & AT91C_SPI_TXEMPTY) == 0){}  // wait for the transfer to complete
+armsrc/EEPROM.c:  AT91C_BASE_SPI->SPI_TDR = (data << 0);              // Send the data/command
+armsrc/EEPROM.c:	AT91C_BASE_SPI->SPI_TDR=(0 << 24);
+armsrc/EEPROM.c:	AT91C_BASE_SPI->SPI_TDR=(1 << 24);
+armsrc/EEPROM.c:  //while ((AT91C_BASE_SPI->SPI_SR & AT91C_SPI_TXEMPTY) == 0){}  // wait for the transfer to complete
+armsrc/EEPROM.c:  AT91C_BASE_SPI->SPI_TDR = 0;// Send 0 to get the reply
+armsrc/EEPROM.c:        AT91C_BASE_SPI->SPI_TDR=(0 << 24);
+armsrc/EEPROM.c:        AT91C_BASE_SPI->SPI_TDR=(1 << 24);
+armsrc/EEPROM.c:  while ((AT91C_BASE_SPI->SPI_SR & AT91C_SPI_TXEMPTY) == 0){}  // wait for the transfer to complete
+armsrc/EEPROM.c:  return AT91C_BASE_SPI->SPI_RDR;
+armsrc/LCD.c:	while ((AT91C_BASE_SPI->SPI_SR & AT91C_SPI_TXEMPTY) == 0);	// wait for the transfer to complete
+armsrc/LCD.c:	AT91C_BASE_SPI->SPI_TDR = data^0x100;							// Send the data/command
+armsrc/appmain.c:	AT91C_BASE_SPI->SPI_CR = AT91C_SPI_SWRST;
+armsrc/fpgaloader.c:	AT91C_BASE_SPI->SPI_CR = AT91C_SPI_SPIEN;
+armsrc/fpgaloader.c:			AT91C_BASE_SPI->SPI_MR =
+armsrc/fpgaloader.c:			AT91C_BASE_SPI->SPI_CSR[0] =
+armsrc/fpgaloader.c:			AT91C_BASE_SPI->SPI_MR =
+armsrc/fpgaloader.c:			AT91C_BASE_SPI->SPI_CSR[2] =
+armsrc/fpgaloader.c:			AT91C_BASE_SPI->SPI_MR =
+armsrc/fpgaloader.c:			AT91C_BASE_SPI->SPI_CSR[3] =
+armsrc/fpgaloader.c:			AT91C_BASE_SPI->SPI_CR = AT91C_SPI_SPIDIS;
+armsrc/fpgaloader.c:	while ((AT91C_BASE_SPI->SPI_SR & AT91C_SPI_TXEMPTY) == 0);		// wait for the transfer to complete
+armsrc/fpgaloader.c:	AT91C_BASE_SPI->SPI_TDR = AT91C_SPI_LASTXFER | cmd | v;		// send the data
+include/EEPROM.c:  while ((AT91C_BASE_SPI->SPI_SR & AT91C_SPI_TXEMPTY) == 0);  // wait for the transfer to complete
+include/EEPROM.c:  AT91C_BASE_SPI->SPI_TDR = data;              // Send the data/command
+include/EEPROM.c:  while ((AT91C_BASE_SPI->SPI_SR & AT91C_SPI_TXEMPTY) == 0);  // wait for the transfer to complete
+include/EEPROM.c:  return AT91C_BASE_SPI->SPI_RDR;

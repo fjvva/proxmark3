@@ -2736,7 +2736,7 @@ void RAMFUNC SniffMifare(uint8_t param) {
 	// param:
 	// bit 0 - trigger from first card answer
 	// bit 1 - trigger from first reader 7-bit request
-
+	DbpString("I am the SniffMifare function");
 	// C(red) A(yellow) B(green)
 	LEDsoff();
 	// init trace buffer

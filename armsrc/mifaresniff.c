@@ -159,7 +159,7 @@ bool intMfSniffSend() {
 		LED_B_ON();
 		cmd_send(CMD_ACK, 1, BigBuf_get_traceLen(), pckSize, trace + BigBuf_get_traceLen() - pckLen, pckSize);
 		LED_B_OFF();
-
+		Dbprintf("%08x %08x %08x %08x %\n",BigBuf_get_traceLen(), pckSize, trace + BigBuf_get_traceLen() - pckLen, pckSize);
 		pckLen -= pckSize;
 		pckNum++;
 	}

@@ -22,6 +22,8 @@ local _commands = {
 	CMD_VERSION =                                                        0x0107,
 	CMD_STATUS =                                                         0x0108,
 	CMD_PING =                                                           0x0109,
+	CMD_EEPROM_CLEAR =						     0x010A,
+	CMD_EEPROM_TEST =						     0x010B,
 	--// For low-frequency tags
 	CMD_READ_TI_TYPE =                                                   0x0202,
 	CMD_WRITE_TI_TYPE =                                                  0x0203,

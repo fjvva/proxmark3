@@ -26,6 +26,7 @@
 #include "lfsampling.h"
 #include "BigBuf.h"
 #include "mifareutil.h"
+#include "EEPROM.h"
 #ifdef WITH_LCD
  #include "LCD.h"
 #endif
@@ -1184,6 +1185,39 @@ void UsbPacketReceived(uint8_t *packet, int len)
 			emlSet(c->d.asBytes,c->arg[0], c->arg[1]);
 			break;
 #endif
+
+		case CMD_EEPROM_CLEAR:
+			Dbprintf("Erasing EEPROM..");
+			EEPROMInit();
+			EEPROMChipErase();
+			Dbprintf("Done!");
+			break;
+		 case CMD_EEPROM_TEST:
+                        Dbprintf("Testing EEPROM..");
+                        EEPROMInit();
+			for (uint8_t tst=0;tst<0xFE;tst++)
+			{
+				uint32_t tst2=tst;
+				EEPROMWriteByte(tst2,tst);
+			}
+			uint8_t passed=1;
+			for (uint8_t tst=0;tst<0xFE;tst++)
+                        {
+				uint32_t tst2=tst;
+                        	if(EEPROMReadByte(tst2)!=tst)
+				{
+					passed=0;
+				}
+                        }
+			if(passed==1)
+			{
+				Dbprintf("Test passed!");
+			}
+			else
+			{
+				Dbprintf("Test failed!");
+			}
+                        break;
 
 		case CMD_BUFF_CLEAR:
 			BigBuf_Clear();

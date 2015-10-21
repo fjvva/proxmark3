@@ -60,6 +60,7 @@
 
 #define SPI_FPGA_MODE	0
 #define SPI_LCD_MODE	1
+#define SPI_EEPROM_MODE  2
 
 #define TRUE 1
 #define FALSE 0

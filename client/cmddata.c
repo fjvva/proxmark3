@@ -765,6 +765,22 @@ int CmdBuffClear(const char *Cmd)
 	return 0;
 }
 
+int CmdEEPROMClear(const char *Cmd)
+{
+        UsbCommand c = {CMD_EEPROM_CLEAR};
+        SendCommand(&c);
+        ClearGraph(true);
+        return 0;
+}
+
+int CmdEEPROMTest(const char *Cmd)
+{
+        UsbCommand c = {CMD_EEPROM_TEST};
+        SendCommand(&c);
+        return 0;
+}
+
+
 int CmdDec(const char *Cmd)
 {
 	for (int i = 0; i < (GraphTraceLen / 2); ++i)
@@ -2358,6 +2374,8 @@ static command_t CommandTable[] =
 	{"bin2hex",         Cmdbin2hex,         1, "bin2hex <digits>     -- Converts binary to hexadecimal"},
 	{"bitsamples",      CmdBitsamples,      0, "Get raw samples as bitstring"},
 	{"buffclear",       CmdBuffClear,       1, "Clear sample buffer and graph window"},
+	{"eepromclear",     CmdEEPROMClear,     1, "Erase EEPROM"},
+	{"eepromtest",      CmdEEPROMTest,      1, "Test EEPROM (Overwrites data)"},
 	{"dec",             CmdDec,             1, "Decimate samples"},
 	{"detectclock",     CmdDetectClockRate, 1, "[modulation] Detect clock rate of wave in GraphBuffer (options: 'a','f','n','p' for ask, fsk, nrz, psk respectively)"},
 	{"fdxbdemod",       CmdFDXBdemodBI    , 1, "Demodulate a FDX-B ISO11784/85 Biphase tag from GraphBuffer"},

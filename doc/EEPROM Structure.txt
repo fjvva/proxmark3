@@ -1,0 +1,1 @@
+EEPROM is divided into 32 blocks of 4KB each. This allows to emulate up to a Mifare 4KB card.
