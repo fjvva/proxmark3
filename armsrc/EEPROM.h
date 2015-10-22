@@ -1,3 +1,8 @@
+/*
+EEPROM driver for PROXMARK3 by Javier Vazquez
+This library adds support for SPI EEPROM like 25LC1024
+*/ 
+
 #ifndef __EEPROM_H
 #define __EEPROM_H
 
@@ -18,9 +23,13 @@
 #endif
 
 
+uint8_t EEPROMReadSignature(void); //returns the EEPROM signature byte
 void EEPROMSend(uint16_t data, uint8_t endOfTransfer);
-uint8_t EEPROMReadByte (uint32_t address);
-void EEPROMWriteByte (uint32_t address, uint16_t data);
-void EEPROMChipErase (void);
+uint8_t EEPROMReadByte (uint32_t address); //Reads one byte from target address
+void EEPROMWriteByte (uint32_t address, uint16_t data); //Writes one byte to target offset
+void EEPROMChipErase (void); //Erases the whole chip
 void EEPROMBusy (void);
-void EEPROMInit (void);
+void EEPROMInit (void); //Sets SPI bus to be used with EEPROM
+void EEPROMWritePage (uint32_t page, uint16_t *data, uint32_t len); //Writes a page (256 bytes)
+void EEPROMReadPage (uint32_t page, uint16_t *eBuf, uint32_t len); //Reads a page (256 bytes)
+void EEPROMPageErase (uint32_t page);//Erases a page

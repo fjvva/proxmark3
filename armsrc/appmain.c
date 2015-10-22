@@ -1195,16 +1195,19 @@ void UsbPacketReceived(uint8_t *packet, int len)
 		 case CMD_EEPROM_TEST:
                         Dbprintf("Testing EEPROM..");
                         EEPROMInit();
+			uint16_t tst2[256];
+			uint32_t pageno=1;
 			for (uint8_t tst=0;tst<0xFE;tst++)
 			{
-				uint32_t tst2=tst;
-				EEPROMWriteByte(tst2,tst);
+				tst2[tst]=tst;
 			}
+			EEPROMWritePage(pageno,tst2,0xFF);
 			uint8_t passed=1;
-			for (uint8_t tst=0;tst<0xFE;tst++)
+			uint16_t tst3[256];
+			EEPROMReadPage(pageno,tst3,0xFF);
+			for (uint16_t tst=0;tst<0xFF;tst++)
                         {
-				uint32_t tst2=tst;
-                        	if(EEPROMReadByte(tst2)!=tst)
+                        	if(tst2[tst]!=tst3[tst])
 				{
 					passed=0;
 				}
@@ -1242,7 +1245,7 @@ void UsbPacketReceived(uint8_t *packet, int len)
 			break;
 
 		case CMD_DOWNLOAD_RAW_ADC_SAMPLES_125K:
-
+			//EEPROM
 			LED_B_ON();
 			uint8_t *BigBuf = BigBuf_get_addr();
 			for(size_t i=0; i<c->arg[1]; i += USB_CMD_DATA_SIZE) {
